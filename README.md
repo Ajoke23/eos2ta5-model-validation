@@ -10,8 +10,14 @@ as output
 # WEEK 2: Task 1
 
 ## Testing of eos2ta5 model
-The aim was to download, fetch,serve and run prediction so as to test the model on Ersilia to know if it's working. The process was done using Esilia on google collab. I used a random dataset with 9 records that has SMILES column to test model eos2ta5. The output can be found in the notebook folder titled as Testing
+The aim was to download, fetch,serve and run prediction so as to test the model on Ersilia to know if it's working. The process was done using Esilia on google collab. I used a random dataset with 9 records that has SMILES column to test model eos2ta5. The output can be found in the notebook folder. 
+Link of the testing model notebook: [eos2ta5_model](https://github.com/Ajoke23/eos2ta5-model-validation/blob/main/Notebook/Testing%20of%20model%20eos2ta5.ipynb)
+- Summary: The output retuns the probability of the SMILES column which is a commpound. Hence, model eos2ta5 works perfectly well.
+
 ## Data Acquisition
-The detailed explanation can be found under the readme.md section in the folder section
+The aim of this task is to select a list of 1000 molecules from public repositories and make sure they are represented as standard SMILES.
+I acquired the dataset to be used from pubchem database. This dataset downloaded was a bit large (about 81.26 mb) with about 114,289 rows which contains SMILES columns. So I cleaned the dataset and selected random 1000 records which can be found in this path
+1000molecules.csv- contains a list of 1000 moelcules from pubchem database.
+- Summary: The file cleaned has 1000 molecules and 3 fields namely: canonicalsmiles, inchikeys and molecular weight.
 
-
+## Predictions for 1000molecules file
