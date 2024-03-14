@@ -68,8 +68,9 @@ Link of the testing model notebook: [eos2ta5_model](https://github.com/Ajoke23/e
 This task aims to select a list of 1000 molecules from public repositories and make sure they are represented as standard SMILES.
 I acquired the dataset to be used from the [PubChem database](https://pubchem.ncbi.nlm.nih.gov/classification/#hid=72). This dataset downloaded contains about 2265 rows with numerous fields. The SMILES column is titled "canonicalsmiles" in the dataset downloaded from PubChem. Since the SMILES was in canonical format, I decided to convert it to standardized smiles will be useful in running prediction
 So I cleaned the dataset, filtered out unnecessary columns, and selected random 1000 records which can be found in this path
-- 1000molecules.csv - contains a list of random 1000 molecules from the dataset downloaded from the PubChem database.
+- [1000molecules.csv](https://github.com/Ajoke23/eos2ta5-model-validation/blob/main/Data/Input/1000molecules.csv) - contains a list of random 1000 molecules from the dataset downloaded from the PubChem database.
 - Summary: The file cleaned has 1000 molecules and 3 fields namely: canonical smiles, inchikeys, and molecular weight.
 
 ## Predictions for 1000molecules file
 The aim is to carry out a prediction on the 1000 molecules obtained from a public repository and evaluate the result using a scatter plot.
+[1000molecules_prediction.csv](https://github.com/Ajoke23/eos2ta5-model-validation/blob/main/Data/Output/1000molecules_prediction.csv) - output of the predicted value using the 1000molecule data.
