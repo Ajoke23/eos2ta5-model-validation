@@ -74,3 +74,8 @@ So I cleaned the dataset, filtered out unnecessary columns, and selected random 
 ## Predictions for 1000molecules file
 The aim is to carry out a prediction on the 1000 molecules obtained from a public repository and evaluate the result using a scatter plot.
 [1000molecules_prediction.csv](https://github.com/Ajoke23/eos2ta5-model-validation/blob/main/Data/Output/1000molecules_prediction.csv) - output of the predicted value using the 1000molecule data.
+
+
+# References
+[Publication](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-021-00541-z)
+[Source Code](https://github.com/Abdulk084/CardioTox)
