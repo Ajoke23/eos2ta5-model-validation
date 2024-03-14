@@ -16,9 +16,8 @@ hERG blocker if the probability is >=0.5 and a non-blocker if the probability is
  
 ## Summary of the model
 This model predicts hERG blockade based on ligands which is of utmost importance in drug discovery. The model is a classification model which 
-returns the probability that the compound inhibits hERG which was set at IC50 < 10 uM by the authors. A druglike molecules
-The characteristics of the eos2ta5 model involve inputting a single compound for classification, which returns a single probability value (in float)
-as output 
+returns the probability that the compound inhibits hERG which was set at IC50 < 10 uM by the authors.The characteristics of the eos2ta5 model 
+involve inputting a single compound for classification, which returns a single probability value (in float) as output 
 
 ## Installation
 Tested on Ubuntu and Python version >=3.7 and <=3.11. 
@@ -69,7 +68,7 @@ Link of the testing model notebook: [eos2ta5_model](https://github.com/Ajoke23/e
 This task aims to select a list of 1000 molecules from public repositories and make sure they are represented as standard SMILES.
 I acquired the dataset to be used from the [PubChem database](https://pubchem.ncbi.nlm.nih.gov/classification/#hid=72). This dataset downloaded contains about 2265 rows with numerous fields. The SMILES column is titled "canonicalsmiles" in the dataset downloaded from PubChem. Since the SMILES was in canonical format, I decided to convert it to standardized smiles will be useful in running prediction
 So I cleaned the dataset, filtered out unnecessary columns, and selected random 1000 records which can be found in this path
-1000molecules.csv- contains a list of random 1000 molecules from the dataset downloaded from the PubChem database.
+- 1000molecules.csv - contains a list of random 1000 molecules from the dataset downloaded from the PubChem database.
 - Summary: The file cleaned has 1000 molecules and 3 fields namely: canonical smiles, inchikeys, and molecular weight.
 
 ## Predictions for 1000molecules file
