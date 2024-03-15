@@ -37,33 +37,7 @@ ersilia -v serve eos2at5
 ersilia -v api run -i input.csv -o output.csv
 ```
 ### Using Google Collab
-1. Install Ersilia Model on Google Collab
-```
-#Installing Ersilia on Colab
-%%capture
-%env MINICONDA_INSTALLER_SCRIPT=Miniconda3-py37_4.12.0-Linux-x86_64.sh
-%env MINICONDA_PREFIX=/usr/local
-%env PYTHONPATH= "$PYTHONPATH:/usr/local/lib/python3.7/site-packages"
-%env PIP_ROOT_USER_ACTION=ignore
 
-!wget https://repo.anaconda.com/miniconda/$MINICONDA_INSTALLER_SCRIPT
-!chmod +x $MINICONDA_INSTALLER_SCRIPT
-!./$MINICONDA_INSTALLER_SCRIPT -b -f -p $MINICONDA_PREFIX
-
-!python -m pip install git+https://github.com/ersilia-os/ersilia.git
-!python -m pip install requests --upgrade
-import sys
-
-_ = sys.path.append("/usr/local/lib/python3.7/site-packages")
-```
-2. m
-```
-#Connect Colab to Google Drive
-from google.colab import drive
-
-#Mount Google Drive to access files
-drive.mount("/content/drive")
-```
 # WEEK 2: Task 1
 
 ## Testing of eos2ta5 model
@@ -75,6 +49,7 @@ Link of the testing model notebook: [eos2ta5_model](https://github.com/Ajoke23/e
 This task aims to select a list of 1000 molecules from public repositories and ensure they are represented as standard SMILES.
 I acquired the dataset from the [PubChem database](https://pubchem.ncbi.nlm.nih.gov/classification/#hid=72). This dataset downloaded contains about 2265 rows with numerous fields. The SMILES column is titled "canonicalsmiles" in the dataset downloaded from PubChem. Since the SMILES was in canonical format, I decided to convert it to standardized smiles, which will be useful in running prediction
 So I cleaned the dataset, filtered out unnecessary columns, and selected random 1000 records which can be found in this path
+- [Data Cleaning]() - code containing the cleaning process in Python
 - [1000molecules.csv](https://github.com/Ajoke23/eos2ta5-model-validation/blob/main/Data/Input/1000molecules.csv) - contains a list of random 1000 molecules from the dataset downloaded from the PubChem database.
 - Summary: The file cleaned has 1000 molecules and 3 fields namely: canonical smiles, inchikeys, and molecular weight.
 
@@ -115,7 +90,7 @@ The tool used is Jupyter Notebook and the code can be found [here](https://githu
 ## Result & Conclusion
 I used the same evaluation criteria used in the publication paper to compare the results  and to know if the model is reproducible.
 From this result: 
-![evaluation](https://github.com/Ajoke23/eos2ta5-model-validation/assets/71567200/35ead765-5d4e-458f-af11-b28339b4bc3b)
+![evaluation](https://github.com/Ajoke23/eos2ta5-model-validation/assets/71567200/b89d30b0-a7ff-40fb-8fb7-dd26aaebbf05)
 Publication result:
 ![cardiotox](https://github.com/Ajoke23/eos2ta5-model-validation/assets/71567200/8e9390b8-aa49-4548-929d-f503a6b5d026)
 
