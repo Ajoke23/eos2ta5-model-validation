@@ -59,7 +59,7 @@ The aim is to carry out a prediction on the 1000 molecules obtained from a publi
 - [1000molecules_prediction.csv](https://github.com/Ajoke23/eos2ta5-model-validation/blob/main/Data/Output/1000molecules_prediction.csv) - output of the predicted value using the 1000molecule data.
 
 ## Result
-To evaluate the result of the model, I set a threshold probability values of 0.5. So i classified my probability values as hERG blockers and hERG non blocker. The result is evualated in a scatterplot and barchat.
+To evaluate the result of the model, I set a threshold probability values of 0.5. So i classified my probability values as hERG blockers and hERG non blocker. The result is evaluated in a scatterplot and barchat.
 All the plot can be found in this [link](https://github.com/Ajoke23/eos2ta5-model-validation/tree/main/figures)
 
 # WEEK 2: TASK 2
