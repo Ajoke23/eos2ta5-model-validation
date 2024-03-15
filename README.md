@@ -76,6 +76,35 @@ The aim is to carry out a prediction on the 1000 molecules obtained from a publi
 [1000molecules_prediction.csv](https://github.com/Ajoke23/eos2ta5-model-validation/blob/main/Data/Output/1000molecules_prediction.csv) - output of the predicted value using the 1000molecule data.
 
 
+# WEEK 2: TASK 2
+## Model Reproducibility
+The aim is to reproduce the result gotten from the [Publication paper](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-021-00541-z)
+
+## Data Acquisition
+The data used to test the reproducibility of CardioTox was downloaded from the github page
+- [external_test_pos.csv]() - is the downloaded data gotten from the publication [GitHub Page](https://github.com/Abdulk084/CardioTox/blob/master/data/external_test_set_pos.csv)
+- Summary: The file contains 44 records and two columns namely: ACTIVITY & smiles
+
+## Prediction for the Dataset downloaded from the publication
+The aim was to run prediction on ersilia model eos2ta5. I took the following step to achieve the reproducibility output data.
+1. Fetch the model eos2ta5 from docker using:
+```
+docker pull ersiliaos/eos2ta5:latest
+```
+2. Serve model eos2ta5 using:
+```
+ersilia -v serve eos2ta5
+```
+3. Ran prediction
+```
+ersilia -v api run -i external_test_pos.csv -o reproducibility_prediction_output.csv
+```
+- [reproducibility_prediction_output]() - output data gotten after making prediction.
+-  Summary: This returned an output data which contains 44 records and three columns namely: key, input and probability.
+  
+## Reproducibility Process
+
+After running some python code on Jupyter notebook, 
 # References
 [Publication](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-021-00541-z)
 [Source Code](https://github.com/Abdulk084/CardioTox)
