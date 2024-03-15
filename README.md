@@ -37,6 +37,7 @@ ersilia -v serve eos2at5
 ersilia -v api run -i input.csv -o output.csv
 ```
 ### Using Google Collab
+The process can be found [here](https://github.com/ersilia-os/ersilia/blob/master/notebooks/ersilia-on-colab.ipynb)
 
 # WEEK 2: Task 1
 
@@ -89,10 +90,11 @@ The tool used is Jupyter Notebook and the code can be found [here](https://githu
 
 ## Result & Conclusion
 I used the same evaluation criteria used in the publication paper to compare the results  and to know if the model is reproducible.
-From this result: 
-![evaluation](https://github.com/Ajoke23/eos2ta5-model-validation/assets/71567200/b89d30b0-a7ff-40fb-8fb7-dd26aaebbf05)
-Publication result:
-![cardiotox](https://github.com/Ajoke23/eos2ta5-model-validation/assets/71567200/8e9390b8-aa49-4548-929d-f503a6b5d026)
+From this result:
+![Result](https://github.com/Ajoke23/eos2ta5-model-validation/assets/71567200/51615d48-3635-45a6-9eca-f4350f378599)
+
+Publication Result:
+![cardiotox](https://github.com/Ajoke23/eos2ta5-model-validation/assets/71567200/6cd79857-e06e-4b63-b1c6-89be3ec59c84)
 
 Comparing the two outputs having the same evaluation criteria result shows that the model is reproducible.
 
