@@ -15,15 +15,15 @@ hERG blocker if the probability is >=0.5 and a non-blocker if the probability is
 - Interpretation: Probability that the compound inhibits hERG (IC50 < 10 uM)
  
 ## Summary of the model
-This model predicts hERG blockade based on ligands which is of utmost importance in drug discovery. The model is a classification model which 
-returns the probability that the compound inhibits hERG which was set at IC50 < 10 uM by the authors.The characteristics of the eos2ta5 model 
-involve inputting a single compound for classification, which returns a single probability value (in float) as output 
+This model predicts hERG blockade based on ligands which is of utmost importance in drug discovery. The model is a classification model which returns the probability that the compound 
+inhibits hERG which was set at IC50 < 10 uM by the authors. The characteristics of the eos2ta5 model involve inputting a single compound for classification, which returns a single 
+probability value (in float) as output.
 
 ## Installation
 Tested on Ubuntu and Python version >=3.7 and <=3.11. 
 
 ### Using Ubuntu
-- Install Ersilia's model. Link can be found [here](https://ersilia.gitbook.io/ersilia-book/ersilia-model-hub/installation)
+- Install Ersilia's model. The link can be found [here](https://ersilia.gitbook.io/ersilia-book/ersilia-model-hub/installation)
 -  Fetch the model
 ```
 ersilia -v fetch eos2at5
@@ -32,12 +32,12 @@ ersilia -v fetch eos2at5
 ```
 ersilia -v serve eos2at5
 ```
-- Run Predictions using dataset that has SMILES as column
+- Run Predictions using a dataset that has SMILES as a column
  ```
 ersilia -v api run -i input.csv -o output.csv
 ```
 ### Using Google Collab
-- Install Ersilia
+1. Install Ersilia Model on Google Collab
 ```
 #Installing Ersilia on Colab
 %%capture
@@ -56,7 +56,14 @@ import sys
 
 _ = sys.path.append("/usr/local/lib/python3.7/site-packages")
 ```
+2. m
+```
+#Connect Colab to Google Drive
+from google.colab import drive
 
+#Mount Google Drive to access files
+drive.mount("/content/drive")
+```
 # WEEK 2: Task 1
 
 ## Testing of eos2ta5 model
@@ -65,28 +72,28 @@ Link of the testing model notebook: [eos2ta5_model](https://github.com/Ajoke23/e
 - Summary: The output returns the following columns: keys, input, and probability. Hence, model eos2ta5 works perfectly well.
 
 ## Data Acquisition
-This task aims to select a list of 1000 molecules from public repositories and make sure they are represented as standard SMILES.
-I acquired the dataset to be used from the [PubChem database](https://pubchem.ncbi.nlm.nih.gov/classification/#hid=72). This dataset downloaded contains about 2265 rows with numerous fields. The SMILES column is titled "canonicalsmiles" in the dataset downloaded from PubChem. Since the SMILES was in canonical format, I decided to convert it to standardized smiles will be useful in running prediction
+This task aims to select a list of 1000 molecules from public repositories and ensure they are represented as standard SMILES.
+I acquired the dataset from the [PubChem database](https://pubchem.ncbi.nlm.nih.gov/classification/#hid=72). This dataset downloaded contains about 2265 rows with numerous fields. The SMILES column is titled "canonicalsmiles" in the dataset downloaded from PubChem. Since the SMILES was in canonical format, I decided to convert it to standardized smiles, which will be useful in running prediction
 So I cleaned the dataset, filtered out unnecessary columns, and selected random 1000 records which can be found in this path
 - [1000molecules.csv](https://github.com/Ajoke23/eos2ta5-model-validation/blob/main/Data/Input/1000molecules.csv) - contains a list of random 1000 molecules from the dataset downloaded from the PubChem database.
 - Summary: The file cleaned has 1000 molecules and 3 fields namely: canonical smiles, inchikeys, and molecular weight.
 
 ## Predictions for 1000molecules file
 The aim is to carry out a prediction on the 1000 molecules obtained from a public repository and evaluate the result using a scatter plot.
-[1000molecules_prediction.csv](https://github.com/Ajoke23/eos2ta5-model-validation/blob/main/Data/Output/1000molecules_prediction.csv) - output of the predicted value using the 1000molecule data.
+- [1000molecules_prediction.csv](https://github.com/Ajoke23/eos2ta5-model-validation/blob/main/Data/Output/1000molecules_prediction.csv) - output of the predicted value using the 1000molecule data.
 
 
 # WEEK 2: TASK 2
 ## Model Reproducibility
-The aim is to reproduce the result gotten from the [Publication paper](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-021-00541-z)
+The aim is to reproduce the result obtained from the [Publication paper](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-021-00541-z)
 
 ## Data Acquisition
 The data used to test the reproducibility of CardioTox was downloaded from the github page
-- [external_test_pos.csv]() - is the downloaded data gotten from the publication [GitHub Page](https://github.com/Abdulk084/CardioTox/blob/master/data/external_test_set_pos.csv)
+- [external_test_pos.csv](https://github.com/Ajoke23/eos2ta5-model-validation/blob/main/Data/Model%20Reproducibility/external_test_set_pos.csv) - is the downloaded data gotten from the publication [GitHub Page](https://github.com/Abdulk084/CardioTox/blob/master/data/external_test_set_pos.csv)
 - Summary: The file contains 44 records and two columns namely: ACTIVITY & smiles
 
 ## Prediction for the Dataset downloaded from the publication
-The aim was to run prediction on ersilia model eos2ta5. I took the following step to achieve the reproducibility output data.
+The aim was to run a prediction on the ersilia model eos2ta5. I took the following steps to achieve the reproducibility output data.
 1. Fetch the model eos2ta5 from docker using:
 ```
 docker pull ersiliaos/eos2ta5:latest
@@ -99,12 +106,21 @@ ersilia -v serve eos2ta5
 ```
 ersilia -v api run -i external_test_pos.csv -o reproducibility_prediction_output.csv
 ```
-- [reproducibility_prediction_output]() - output data gotten after making prediction.
--  Summary: This returned an output data which contains 44 records and three columns namely: key, input and probability.
+- [reproducibility_prediction_output](https://github.com/Ajoke23/eos2ta5-model-validation/blob/main/Data/Model%20Reproducibility/reproducibility_prediction_output.csv) - output data gotten after making the prediction.
+-  Summary: This returned output data contains 44 records and three columns namely: key, input, and probability.
   
 ## Reproducibility Process
+The tool used is Jupyter Notebook and the code can be found [here](https://github.com/Ajoke23/eos2ta5-model-validation/blob/main/Notebook/Model%20Reproducibility.ipynb)
 
-After running some python code on Jupyter notebook, 
+## Result & Conclusion
+I used the same evaluation criteria used in the publication paper to compare the results  and to know if the model is reproducible.
+From this result: 
+![evaluation](https://github.com/Ajoke23/eos2ta5-model-validation/assets/71567200/35ead765-5d4e-458f-af11-b28339b4bc3b)
+Publication result:
+![cardiotox](https://github.com/Ajoke23/eos2ta5-model-validation/assets/71567200/8e9390b8-aa49-4548-929d-f503a6b5d026)
+
+Comparing the two outputs having the same evaluation criteria result shows that the model is reproducible.
+
 # References
-[Publication](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-021-00541-z)
-[Source Code](https://github.com/Abdulk084/CardioTox)
+- [Publication](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-021-00541-z)
+- [Source Code](https://github.com/Abdulk084/CardioTox)
