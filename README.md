@@ -50,21 +50,55 @@ Link of the testing model notebook: [eos2ta5_model](https://github.com/Ajoke23/e
 This task aims to select a list of 1000 molecules from public repositories and ensure they are represented as standard SMILES.
 I acquired the dataset from the [PubChem database](https://pubchem.ncbi.nlm.nih.gov/classification/#hid=72). This dataset downloaded contains about 2265 rows with numerous fields. The SMILES column is titled "canonicalsmiles" in the dataset downloaded from PubChem. Since the SMILES was in canonical format, I decided to convert it to standardized smiles, which will be useful in running prediction
 So I cleaned the dataset, filtered out unnecessary columns, and selected random 1000 records which can be found in this path
-- [Data Cleaning](https://github.com/Ajoke23/eos2ta5-model-validation/blob/main/Notebook/Data%20Cleaning.ipynb) - code containing the cleaning process in Python
+- [Data Cleaning](https://github.com/Ajoke23/eos2ta5-model-validation/blob/main/Notebook/data%20cleaning.ipynb) - code containing the cleaning process in Python
 - [1000molecules.csv](https://github.com/Ajoke23/eos2ta5-model-validation/blob/main/Data/Input/1000molecules.csv) - contains a list of random 1000 molecules from the dataset downloaded from the PubChem database.
 - Summary: The file cleaned has 1000 molecules and 3 fields namely: canonical smiles, inchikeys, and molecular weight.
 
 ## Predictions for 1000molecules file
-The aim is to carry out a prediction on the 1000 molecules obtained from a public repository and evaluate the result using a scatter plot.
+The aim is to obtain a prediction on the 1000 molecules obtained from a public repository and evaluate the result using a scatter plot.
 - [1000molecules_prediction.csv](https://github.com/Ajoke23/eos2ta5-model-validation/blob/main/Data/Output/1000molecules_prediction.csv) - output of the predicted value using the 1000molecule data.
 
 ## Result
-To evaluate the result of the model, I set a threshold probability values of 0.5. So i classified my probability values as hERG blockers and hERG non blocker. The result is evaluated in a scatterplot and barchat.
-All the plot can be found in this [link](https://github.com/Ajoke23/eos2ta5-model-validation/tree/main/figures)
+To evaluate the result of the model, I set a threshold probability value of 0.5. So I classified my probability values as hERG blockers and hERG non-blockers. The result is evaluated in a scatterplot and barchat.
+All the plots can be found in this [link](https://github.com/Ajoke23/eos2ta5-model-validation/tree/main/figures)
 
 # WEEK 2: TASK 2
-## Model Reproducibility
+# Model Reproducibility
 The aim is to reproduce the result obtained from the [Publication paper](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-021-00541-z)
+
+## IMPLEMENTATION USING THE AUTHORS SOURCE CODE
+**TOOL USED: Ubuntu**
+I took the following steps:
+1. I already had conda installed in my system
+2. Setup cardiotox on conda environment
+```
+# create a conda environment
+conda create -n cardiotox python=3.7.7
+# activate the environment
+conda activate cardiotox
+```
+3. Installed PyBioMed and return back to the home directory
+```
+cd cardiotox
+cd PyBioMed
+python setup.py install
+cd ..
+```
+4. Installed the exact package version the author used
+```
+pip install tensorflow==2.3.1
+pip install sklearn==0.0
+pip install mordred==1.2.0
+pip install pybel==0.14.10
+pip install keras==2.4.3
+```
+5. To test the model, I ran this code `python test.py`
+
+**OUTPUT:**
+![Implementation output](https://github.com/Ajoke23/eos2ta5-model-validation/assets/71567200/c66a2429-5a50-4d89-a7f7-398689e5dcb7)
+
+## Observation & Conclusion
+The output obtained was the exact result from the author's publication. When trying to implement the author's source, I advise it should done on Ubuntu. Using Juypter Notebook or Google Collab resulted in an error because the version of the package used by the author was outdated this might be because the publication is up to 3 years. Using pip to download the exact version for the package will return an error saying the no version of this can be found.
 
 ## Data Acquisition
 The data used to test the reproducibility of CardioTox was downloaded from the github page
