@@ -132,15 +132,17 @@ The tool used is Jupyter Notebook and the code can be found [here](https://githu
 ## Result & Conclusion
 I used the same evaluation criteria used in the publication paper to compare the results
 From this result:
-**Test set-I Result:**
+- **Test set-I Result:**
 ![test I](https://github.com/Ajoke23/eos2ta5-model-validation/assets/71567200/9867e0bf-20a2-46a3-93aa-3876207d95bb)
 
-**Test set-II Result:**
+- **Test set-II Result:**
 ![test II](https://github.com/Ajoke23/eos2ta5-model-validation/assets/71567200/df3662d8-9749-4425-839f-43d373de8ab4)
 
 
-Publication Result:
-![cardiotox](https://github.com/Ajoke23/eos2ta5-model-validation/assets/71567200/6cd79857-e06e-4b63-b1c6-89be3ec59c84)
+- Publication Result:
+![cardiotox test I](https://github.com/Ajoke23/eos2ta5-model-validation/assets/71567200/6cd79857-e06e-4b63-b1c6-89be3ec59c84)
+![cardiotox test II](https://github.com/Ajoke23/eos2ta5-model-validation/assets/71567200/d079ce97-8d60-4d1b-8b29-f9412d93afb5)
+
 
 Using the same evaluation criteria to compare the two results, both have similar results. Hence, the model is reproducible.
 
