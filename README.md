@@ -95,18 +95,20 @@ pip install keras==2.4.3
 5. To test the model, I ran this code `python test.py`
 
 **OUTPUT:**
-![Implementation output](https://github.com/Ajoke23/eos2ta5-model-validation/assets/71567200/c66a2429-5a50-4d89-a7f7-398689e5dcb7)
+![test1 2](https://github.com/Ajoke23/eos2ta5-model-validation/assets/71567200/07a72f5a-1a0e-4a4b-ad44-b3f09723adcb)
+
 
 ## Observation & Conclusion
-The output obtained was the exact result from the author's publication. When trying to implement the author's source, I advise it should done on Ubuntu. Using Juypter Notebook or Google Collab resulted in an error because the version of the package used by the author was outdated this might be because the publication is up to 3 years. Using pip to download the exact version for the package will return an error saying the no version of this can be found.
+The output obtained was the exact result from the author's publication. When trying to implement the author's source, I advise it should done on Ubuntu. Using Juypter Notebook or Google Collab resulted in an error because the version of the package used by the author was outdated this might be because the publication is up to 3 years. Using pip to download the exact version for the package will return an error saying that "no version of this can be found".
 
 ## Data Acquisition
 The data used to test the reproducibility of CardioTox was downloaded from the github page
 - [external_test_pos.csv](https://github.com/Ajoke23/eos2ta5-model-validation/blob/main/Data/Model%20Reproducibility/external_test_set_pos.csv) - is the downloaded data gotten from the publication [GitHub Page](https://github.com/Abdulk084/CardioTox/blob/master/data/external_test_set_pos.csv)
-- Summary: The file contains 44 records and two columns namely: ACTIVITY & smiles
+- [external_test_neg.csv](https://github.com/Ajoke23/eos2ta5-model-validation/blob/main/Data/Model%20Reproducibility/external_test_set_neg.csv) - is the downloaded data gotten from the publication [GitHub Page](https://github.com/Abdulk084/CardioTox/blob/master/data/external_test_set_neg.csv)
+- Summary: The two datasets contain 44 records and two columns namely: ACTIVITY & smiles
 
 ## Prediction for the Dataset downloaded from the publication
-The aim was to run a prediction on the ersilia model eos2ta5. I took the following steps to achieve the reproducibility output data.
+The aim was to run a prediction on the ersilia model eos2ta5. I took the following steps to achieve the reproducibility of output data.
 1. Fetch the model eos2ta5 from docker using:
 ```
 docker pull ersiliaos/eos2ta5:latest
@@ -118,22 +120,29 @@ ersilia -v serve eos2ta5
 3. Ran prediction
 ```
 ersilia -v api run -i external_test_pos.csv -o reproducibility_prediction_output.csv
+ersilia -v api run -i external_test_pos.csv -o test2_reproducibility_prediction_output.csv
 ```
-- [reproducibility_prediction_output](https://github.com/Ajoke23/eos2ta5-model-validation/blob/main/Data/Model%20Reproducibility/reproducibility_prediction_output.csv) - output data gotten after making the prediction.
--  Summary: This returned output data contains 44 records and three columns namely: key, input, and probability.
+- [reproducibility_prediction_output](https://github.com/Ajoke23/eos2ta5-model-validation/blob/main/Data/Model%20Reproducibility/reproducibility_prediction_output.csv) - output data gotten after prediction of model eos2ta5 Ersilia Model specifically model eos2ta5
+- [test2_reproducibility_prediction_output](https://github.com/Ajoke23/eos2ta5-model-validation/blob/main/Data/Model%20Reproducibility/test2_reproducibility_prediction_output.csv) - output data gotten after prediction of model eos2ta5 
+-  Summary: These two output files returned a dataset containing 44 records and three columns namely: key, input, and probability.
   
 ## Reproducibility Process
-The tool used is Jupyter Notebook and the code can be found [here](https://github.com/Ajoke23/eos2ta5-model-validation/blob/main/Notebook/Model%20Reproducibility.ipynb)
+The tool used is Jupyter Notebook and the code can be found [here](https://github.com/Ajoke23/eos2ta5-model-validation/blob/main/Notebook/model%20reproducibility.ipynb)
 
 ## Result & Conclusion
-I used the same evaluation criteria used in the publication paper to compare the results  and to know if the model is reproducible.
+I used the same evaluation criteria used in the publication paper to compare the results
 From this result:
-![Result](https://github.com/Ajoke23/eos2ta5-model-validation/assets/71567200/51615d48-3635-45a6-9eca-f4350f378599)
+**Test set-I Result:**
+![test I](https://github.com/Ajoke23/eos2ta5-model-validation/assets/71567200/9867e0bf-20a2-46a3-93aa-3876207d95bb)
+
+**Test set-II Result:**
+![test II](https://github.com/Ajoke23/eos2ta5-model-validation/assets/71567200/df3662d8-9749-4425-839f-43d373de8ab4)
+
 
 Publication Result:
 ![cardiotox](https://github.com/Ajoke23/eos2ta5-model-validation/assets/71567200/6cd79857-e06e-4b63-b1c6-89be3ec59c84)
 
-Using the same evaluation criteria to compare the two result, it is showm that they both have similar result. Hence, the model is reproducible.
+Using the same evaluation criteria to compare the two results, both have similar results. Hence, the model is reproducible.
 
 # References
 - [Publication](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-021-00541-z)
