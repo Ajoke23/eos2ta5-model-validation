@@ -146,6 +146,153 @@ From this result:
 
 Using the same evaluation criteria to compare the two results, both have similar results. Hence, the model is reproducible.
 
+#WEEK 3:
+## Dataset Used
+The experimental dataset used was obtained from a publication and the link to the data is found [here](https://github.com/zhaoqi106/DMFGAM/blob/main/Smiles.csv). 
+## Data Leakage
+In this task, I ensure that inchikey present in the experimental dataset (used for performance evaluation) is not included in the training dataset used to build the predictive model. In the process of data leakage,
+The number of molecules from external datasets present in training datasets is: 7740. I dropped those leaked data. For accuracy and model performance, it's advisable to always remove leaked data to avoid model biases and to improve model performance. Thus, making your evaluation dataset independent from training dataset.
+The sources of the data leakage were the public repositories where the dataset was obtained. Both the experimental dataset and training dataset used by the author were gotten from  Chembl, Pubchem
+
+## Summary Statistics
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File
+href="file:///C:/Users/HP/AppData/Local/Temp/msohtmlclip1/01/clip.htm">
+<link rel=File-List
+href="file:///C:/Users/HP/AppData/Local/Temp/msohtmlclip1/01/clip_filelist.xml">
+<!--table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+tr
+	{mso-height-source:auto;}
+col
+	{mso-width-source:auto;}
+br
+	{mso-data-placement:same-cell;}
+td
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Aptos Narrow", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	mso-protection:locked visible;
+	white-space:nowrap;
+	mso-rotate:0;}
+-->
+</head>
+
+<body link="#467886" vlink="#96607D">
+
+
+  | Molecules
+-- | --
+Training Data | 12620
+Validation Data | 870
+
+
+
+</body>
+
+</html>
+
+
+## Prediction on Model eos2ta5
+The aim was to run a prediction on the ersilia model eos2ta5 using the dataset that is to be used to validate the model.
+This was done on Google collab
+
+## EVALUATION METRICS
+The model falls under the classification type. So, I used several evaluation  metrics that are commonly used in classification model. The evaluation metrics used was MCC, NPV, PPV, ACC, SEN, SPE, B-ACC & AUROC curve.
+**SUMMARY:**
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File
+href="file:///C:/Users/HP/AppData/Local/Temp/msohtmlclip1/01/clip.htm">
+<link rel=File-List
+href="file:///C:/Users/HP/AppData/Local/Temp/msohtmlclip1/01/clip_filelist.xml">
+
+<!--table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+tr
+	{mso-height-source:auto;}
+col
+	{mso-width-source:auto;}
+br
+	{mso-data-placement:same-cell;}
+td
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Aptos Narrow", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	mso-protection:locked visible;
+	white-space:nowrap;
+	mso-rotate:0;}
+-->
+</head>
+
+<body link="#467886" vlink="#96607D">
+
+
+Data | Model | MCC | NPV | ACC | PPV | SPE | SEN | B-ACC | AUC SCORE
+-- | -- | -- | -- | -- | -- | -- | -- | -- | --
+Validation Dataset | eos2ta5 | 0.326 | 0.573 | 0.661 | 0.748 | 0.693 | 0.639 | 0.666 | 0.7
+
+
+
+</body>
+
+</html>
+The PPV & NPV metrics indicating better performance in certain aspects of classification while the remaining evaluation metrics suggest moderate performance.AUC score of 0.70 also proves that the model has a predicting 
+cability to distinguish between drug that are hERG blocker and hERG non-blocker. From this evaluation metrics, it shows that the model performed moderately well and have the predicting ability to identify hERG blocker.
+
+
 # References
 - [Publication](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-021-00541-z)
 - [Source Code](https://github.com/Abdulk084/CardioTox)
